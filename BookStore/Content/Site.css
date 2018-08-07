@@ -55,26 +55,32 @@ html, body {
     background-color: #ffcc5c;
 }
 
+
 .container {
     display: grid;
-    height: 50%;
-    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 100px auto 50px;
     grid-gap: 3px;
+    grid-template-areas:
+        "h h"
+        "m c"
+        "f f"
 }
 
 .header {
-    grid-column: 1 / -1;
+    grid-area: h;
 }
 
 .menu {
-
+    grid-area: m;
+    
 }
 
 .content {
-    grid-column: 2 / -1;
+    grid-area: c;
 }
 
 .footer {
-    grid-column: 1 / -1;
+    grid-column: f;
 }
