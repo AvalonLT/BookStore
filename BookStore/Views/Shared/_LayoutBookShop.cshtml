@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -10,13 +9,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>_LayoutBookShop</title>
     @Styles.Render("~/Content/css")
+    <script src="~/Scripts/jquery-3.0.0.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="header">Header</div>
-        <div class="menu">Menu</div>
-        <div class="content"> @RenderBody() </div>
+        <div class="header">
+            <div class="flex-box-header">
+                <div>Home</div>
+                <div>Search</div>
+                <div>Logout</div>
+                <div>Help</div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="flex-box-menu">
+                <div>Option1</div>
+                <div>Option2</div>
+                <div>Option3</div>
+                <div>Option4</div>
+            </div>
+        </div>
+        <div class="content">@RenderBody()</div>
         <div class="footer">Footer</div>
     </div>
+
 </body>
+
 </html>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,17 @@ namespace BookStore.Controllers
 {
     public class MainController : Controller
     {
-        // GET: Main/Test
-        public ActionResult Test()
+        private ApplicationDbContext _context;
+        
+        public MainController()
         {
-            return View();
+            _context = new ApplicationDbContext();
+        }
+
+        public ActionResult GetAllBooks()
+        {
+            var booksList = _context.Books.ToList();
+            return View(booksList);
         }
     }
 }

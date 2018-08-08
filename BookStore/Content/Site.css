@@ -23,15 +23,15 @@ textarea {
     max-width: 280px;
 }
 
-/* ------------------------ */
+/* Grid colors */
 
-.container > div {
+/*.container > div {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
     color: #ffeead;
-}
+}*/
 
 html, body {
     background-color: #ffeead;
@@ -55,6 +55,7 @@ html, body {
     background-color: #ffcc5c;
 }
 
+/* Grid formation */
 
 .container {
     display: grid;
@@ -84,3 +85,49 @@ html, body {
 .footer {
     grid-column: f;
 }
+
+/* Flexbox header*/
+
+.flex-box-header > div:nth-child(1n) {
+    background-color: gold;
+}
+
+.flex-box-header > div:nth-child(2n) {
+    background-color: coral;
+}
+
+.flex-box-header {
+    display: flex;
+    border: 1px solid #ff006e;
+    flex-direction: row;
+}
+
+.flex-box-header > div {
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffeead;
+}
+
+/* Flexbox menu */
+
+.flex-box-menu > div:nth-child(1n) {
+    background-color: coral
+}
+
+.flex-box-menu {
+    display: flex;
+    border: 1px solid #ff006e;
+    flex-direction: column;
+}
+
+.flex-box-menu > div {
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffeead;
+}
+
+
+
+

@@ -1,0 +1,12 @@
+﻿@model List<BookStore.Models.Book>
+
+@{
+    ViewBag.Title = "GetAllBooks";
+    Layout = "~/Views/Shared/_LayoutBookShop.cshtml";
+}
+
+@foreach (var book in @Model)
+{
+<span>@book.Title</span>
+}
+
