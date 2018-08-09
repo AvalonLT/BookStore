@@ -20,6 +20,9 @@ namespace BookStore.Models
         public int PageCount { get; set; }
 
         [Required]
+        public int Year { get; set; }
+
+        [Required]
         public Author Author { get; set; }
 
         [Required]

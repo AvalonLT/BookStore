@@ -147,6 +147,7 @@ html, body {
 .flex-box-content > div {
     font-size: 20px;
     flex-basis: 50px;
+    padding-left: 5px;
 }
 
 .flex-box-content > div:nth-child(1n) {
@@ -160,5 +161,18 @@ html, body {
 .flex-box-content > .book-title {
     flex-basis: 200px;
     background-color:aqua;
+    
+}
+
+.flex-box-content > .book-year {
+    flex-basis: 55px;
+}
+
+.flex-box-content > .book-page-count {
+    flex-basis: 55px;
+}
+
+.flex-box-content > .book-isbn {
+    flex-basis: 105px;
 }
 

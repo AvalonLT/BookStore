@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201808070116120_ChangedBookPropertyNameToTitle.Designer.cs">
       <DependentUpon>201808070116120_ChangedBookPropertyNameToTitle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808092316493_AddPropertyYearToBook.cs" />
+    <Compile Include="Migrations\201808092316493_AddPropertyYearToBook.Designer.cs">
+      <DependentUpon>201808092316493_AddPropertyYearToBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -338,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808070116120_ChangedBookPropertyNameToTitle.resx">
       <DependentUpon>201808070116120_ChangedBookPropertyNameToTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808092316493_AddPropertyYearToBook.resx">
+      <DependentUpon>201808092316493_AddPropertyYearToBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
