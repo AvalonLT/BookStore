@@ -88,6 +88,22 @@ html, body {
 
 /* Flexbox header*/
 
+
+.flex-box-header {
+    display: flex;
+    border: 1px solid #ff006e;
+    flex-direction: row;
+    height: 100%;
+}
+
+.flex-box-header > div {
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffeead;
+    flex-basis: 150px;
+}
+
 .flex-box-header > div:nth-child(1n) {
     background-color: gold;
 }
@@ -96,24 +112,7 @@ html, body {
     background-color: coral;
 }
 
-.flex-box-header {
-    display: flex;
-    border: 1px solid #ff006e;
-    flex-direction: row;
-}
-
-.flex-box-header > div {
-    padding: 10px;
-    text-align: center;
-    font-size: 2em;
-    color: #ffeead;
-}
-
 /* Flexbox menu */
-
-.flex-box-menu > div:nth-child(1n) {
-    background-color: coral
-}
 
 .flex-box-menu {
     display: flex;
@@ -128,6 +127,38 @@ html, body {
     color: #ffeead;
 }
 
+.flex-box-menu > div:nth-child(1n) {
+    background-color: coral
+}
 
+/* Centent */
 
+.flex-box-content {
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+}
+
+.flex-box-content > div:first-child {
+    font-size: 20px;
+    flex-basis: 150px;
+}
+
+.flex-box-content > div {
+    font-size: 20px;
+    flex-basis: 50px;
+}
+
+.flex-box-content > div:nth-child(1n) {
+    background-color: cornflowerblue
+}
+
+.flex-box-content > div:nth-child(2n) {
+    background-color: coral;
+}
+
+.flex-box-content > .book-title {
+    flex-basis: 200px;
+    background-color:aqua;
+}
 
