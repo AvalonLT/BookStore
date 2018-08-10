@@ -22,5 +22,10 @@ namespace BookStore.Controllers
             var booksList = _context.Books.Include(b => b.Author).ToList();
             return View(booksList);
         }
+
+        public ActionResult AddBook()
+        {
+            return View();
+        }
     }
 }
