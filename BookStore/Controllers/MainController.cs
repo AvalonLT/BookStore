@@ -23,7 +23,7 @@ namespace BookStore.Controllers
             return View(booksList);
         }
 
-        public ActionResult AddBook()
+        public ActionResult AddBook(Book book)
         {
             return View();
         }

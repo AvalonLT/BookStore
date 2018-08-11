@@ -4,11 +4,12 @@
     Layout = "~/Views/Shared/_LayoutBookShop.cshtml";
 }
 
-<form>
-    <label>Author Name</label><input class="form-control"/>
+<form action="/Main/AddBook">
+    <label for="name">Author Name</label><input name="name"/>
     <label>Author Last Name</label><input/>
-    <label>Book Title</label><input/>
+    <label for="title">Book Title</label><input name="title"/>
     <label>Year</label><input/>
     <label>Page</label><input/>
     <label>ISBN</label><input/>
+    <input type="submit"/>Add
 </form>
