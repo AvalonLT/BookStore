@@ -23,9 +23,16 @@ namespace BookStore.Controllers
             return View(booksList);
         }
 
-        public ActionResult AddBook(Book book)
+        public ActionResult AddBook()
         {
             return View();
+        }
+
+        public ActionResult CreateBook(Book book)
+        {
+            _context.Books.Add(book);
+            _context.SaveChanges();
+            return RedirectToAction("GetAllBooks");
         }
     }
 }

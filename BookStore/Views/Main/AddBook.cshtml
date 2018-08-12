@@ -1,15 +1,41 @@
-﻿
+﻿@model BookStore.Models.Book
+
 @{
     ViewBag.Title = "AddBook";
     Layout = "~/Views/Shared/_LayoutBookShop.cshtml";
 }
 
-<form action="/Main/AddBook">
-    <label for="name">Author Name</label><input name="name"/>
-    <label>Author Last Name</label><input/>
-    <label for="title">Book Title</label><input name="title"/>
-    <label>Year</label><input/>
-    <label>Page</label><input/>
-    <label>ISBN</label><input/>
-    <input type="submit"/>Add
-</form>
+@using (Html.BeginForm("CreateBook", "Main"))
+{
+    <div class="form-group">
+        @Html.LabelFor(b => b.Author.Name)
+        @Html.TextBoxFor(b => b.Author.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Author.LastName)
+        @Html.TextBoxFor(b => b.Author.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Title)
+        @Html.TextBoxFor(b => b.Title, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.Year)
+        @Html.TextBoxFor(b => b.Year, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.PageCount)
+        @Html.TextBoxFor(b => b.PageCount, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(b => b.ISBN)
+        @Html.TextBoxFor(b => b.ISBN, new { @class = "form-control" })
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Add book</button>
+    </div>
+}
+
+
+
+
