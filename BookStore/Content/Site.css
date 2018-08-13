@@ -137,6 +137,8 @@ html, body {
     display: flex;
     flex-direction: row;
     margin: 2px;
+    align-items:center;
+    
 }
 
 .flex-box-content > div:first-child {
@@ -174,5 +176,18 @@ html, body {
 
 .flex-box-content > .book-isbn {
     flex-basis: 105px;
+}
+
+.flex-box-content > .book-update {
+    flex-basis: 100px;
+}
+
+.flex-box-content > .book-delete {
+    flex-basis: 100px;
+    
+}
+
+.book.book-delete-new {
+    vertical-align: middle;
 }
 
