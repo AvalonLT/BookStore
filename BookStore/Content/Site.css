@@ -138,7 +138,6 @@ html, body {
     flex-direction: row;
     margin: 2px;
     align-items:center;
-    
 }
 
 .flex-box-content > div:first-child {
@@ -163,7 +162,6 @@ html, body {
 .flex-box-content > .book-title {
     flex-basis: 200px;
     background-color:aqua;
-    
 }
 
 .flex-box-content > .book-year {
@@ -184,7 +182,6 @@ html, body {
 
 .flex-box-content > .book-delete {
     flex-basis: 100px;
-    
 }
 
 .book.book-delete-new {

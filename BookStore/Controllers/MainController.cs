@@ -34,5 +34,10 @@ namespace BookStore.Controllers
             _context.SaveChanges();
             return RedirectToAction("GetAllBooks");
         }
+
+        public ActionResult EditBook(string id)
+        {
+            return View();
+        }
     }
 }
