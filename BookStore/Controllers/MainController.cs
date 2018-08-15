@@ -30,14 +30,30 @@ namespace BookStore.Controllers
 
         public ActionResult CreateBook(Book book)
         {
-            _context.Books.Add(book);
+            if (book.Id == 0)
+            {
+                _context.Books.Add(book);
+            }
+            else
+            {
+                var bookInDb = _context.Books.SingleOrDefault(b => b.Id == book.Id);
+                TryUpdateModel(bookInDb);
+            }
+
             _context.SaveChanges();
             return RedirectToAction("GetAllBooks");
         }
 
-        public ActionResult EditBook(string id)
+        public ActionResult EditBook(int id)
         {
-            return View();
+            var book = _context.Books.Include(b => b.Author).SingleOrDefault(b => b.Id == id);
+
+            if (book == null)
+            {
+                HttpNotFound();
+            }
+
+            return View("AddBook", book);
         }
     }
 }

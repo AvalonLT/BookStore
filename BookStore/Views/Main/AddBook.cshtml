@@ -5,6 +5,15 @@
     Layout = "~/Views/Shared/_LayoutBookShop.cshtml";
 }
 
+@if (@Model == null)
+{
+    <h2>New book</h2>
+}
+else
+{
+    <h2>Edit book</h2>
+}
+
 @using (Html.BeginForm("CreateBook", "Main"))
 {
     <div class="form-group">
@@ -32,7 +41,8 @@
         @Html.TextBoxFor(b => b.ISBN, new { @class = "form-control" })
     </div>
     <div>
-        <button type="submit" class="btn btn-primary">Add book</button>
+        @Html.HiddenFor(b => b.Id)
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 }
 
