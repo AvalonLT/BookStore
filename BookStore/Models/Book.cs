@@ -23,11 +23,15 @@ namespace BookStore.Models
         public int Year { get; set; }
 
         [Required]
+        public bool Hardcover { get; set; }
+
+        [Required]
+        public string Language { get; set; }
+
+        [Required]
         public Author Author { get; set; }
 
         [Required]
         public int AuthorId { get; set; }
-
-
     }
 }
