@@ -20,33 +20,33 @@ namespace BookStore.Controllers
 
         public ActionResult GetAllBooks()
         {
-            var booksList = _context.Books.Include(b => b.Author).ToList();
+            var booksList = _context.Books.Include(b => b.Author).Include(b => b.Language).ToList();
             return View(booksList);
         }
 
         public ActionResult AddBook()
         {
-            //var languages = _context.Languages.ToList();
+            var languages = _context.Languages.ToList();
 
-            //BookView bookView = new BookView
-            //{
-            //    Languages = languages
-            //}; 
-            //return View(bookView);
-            return View();
+            BookView bookView = new BookView
+            {
+                Languages = languages
+            };
+            return View(bookView);
         }
 
-        public ActionResult CreateBook(BookView bookView)
+        public ActionResult CreateBook(Book book)
         {
-            //if (bookView.Book.Id == 0)
-            //{
-            //    _context.Books.Add(bookView);
-            //}
-            //else
-            //{
-            //    var bookInDb = _context.Books.SingleOrDefault(b => b.Id == book.Id);
-            //    TryUpdateModel(bookInDb);
-            //}
+            if (book.Id == 0)
+            {
+                book.Language = _context.Languages.Single(b => b.Id == book.LanguageId);
+                _context.Books.Add(book);
+            }
+            else
+            {
+                var bookInDb = _context.Books.SingleOrDefault(b => b.Id == book.Id);
+                TryUpdateModel(bookInDb);
+            }
 
             _context.SaveChanges();
             return RedirectToAction("GetAllBooks");

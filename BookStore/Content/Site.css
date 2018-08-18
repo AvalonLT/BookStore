@@ -137,12 +137,9 @@ html, body {
     display: flex;
     flex-direction: row;
     margin: 2px;
+    flex-grow: 1;
 }
 
-.flex-box-content > div:first-child {
-    font-size: 20px;
-    flex-basis: 150px;
-}
 
 .flex-box-content > div {
     font-size: 20px;
@@ -156,6 +153,11 @@ html, body {
 
 .flex-box-content > div:nth-child(2n) {
     background-color: coral;
+}
+
+.flex-box-content > .book-author {
+    font-size: 20px;
+    flex-basis: 150px;
 }
 
 .flex-box-content > .book-title {

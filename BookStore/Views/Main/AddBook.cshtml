@@ -40,10 +40,16 @@ else
         @Html.LabelFor(b => b.Book.ISBN)
         @Html.TextBoxFor(b => b.Book.ISBN, new { @class = "form-control" })
     </div>
-    @*<div class="form-group">
-        @Html.LabelFor(b => b.Book.)
-        @Html.DropDownListFor(b => b.Book.Language, new SelectList(Model.Languages, "Id", "Name"), "Select Language", new { @class = "form-control" })
-    </div>*@
+    <div class="form-group">
+        @Html.LabelFor(b => b.Book.LanguageId)
+        @Html.DropDownListFor(b => b.Book.LanguageId, new SelectList(Model.Languages, "Id", "Name"), "Select Language", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group form-check">
+        @Html.CheckBoxFor(b => b.Book.Hardcover, new { @class = "form-check-input" })
+        @Html.LabelFor(b => b.Book.Hardcover)
+    </div>
+
     <div>
         @Html.HiddenFor(b => b.Book.Id)
         <button type="submit" class="btn btn-primary">Submit</button>

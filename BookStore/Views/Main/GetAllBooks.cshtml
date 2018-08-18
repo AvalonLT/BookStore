@@ -10,15 +10,15 @@
 @foreach (var book in @Model)
 {
 <div class="flex-box-content">
-    <div>@book.Author.Name @book.Author.LastName</div>
+    <div class="book-author">@book.Author.Name @book.Author.LastName</div>
     <div class="book-title">@book.Title</div>
     <div class="book-year">@book.Year</div>
     <div class="book-page-count">@book.PageCount</div>
     <div class="book-isbn">@book.ISBN</div>
     <div class="book-update"><button class="btn btn-warning btn-sm" onclick="window.location.href='http://localhost:63085/Main/EditBook?id=@book.Id'">Edit</button></div>
-    <div class="book-delete book-delete-new"><button class="btn btn-danger btn-sm">Delete</button></div>
+    <div class="book-delete"><button class="btn btn-danger btn-sm">Delete</button></div>
     <div class="book-hardcover">@book.Hardcover</div>
-    @*<div class="book-language">@book.Language</div>*@
+    <div class="book-language">@book.Language.Name</div>
 </div>
 }
 

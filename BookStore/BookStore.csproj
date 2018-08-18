@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201808180015442_addLanguageToModel.Designer.cs">
       <DependentUpon>201808180015442_addLanguageToModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808181526060_PopulateLanguages.cs" />
+    <Compile Include="Migrations\201808181526060_PopulateLanguages.Designer.cs">
+      <DependentUpon>201808181526060_PopulateLanguages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -390,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808180015442_addLanguageToModel.resx">
       <DependentUpon>201808180015442_addLanguageToModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808181526060_PopulateLanguages.resx">
+      <DependentUpon>201808181526060_PopulateLanguages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

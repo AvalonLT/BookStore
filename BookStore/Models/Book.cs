@@ -29,6 +29,7 @@ namespace BookStore.Models
         public Language Language { get; set; }
 
         [Required]
+        [Display(Name = "Language")]
         public int LanguageId { get; set; }
 
         [Required]
