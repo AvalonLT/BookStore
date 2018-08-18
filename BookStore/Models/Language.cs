@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace BookStore.Models
 {
-    public enum Language
+    public class Language
     {
-        English,
-        German,
-        French,
-        Spanish,
-        Lithuanian
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public ICollection<Book> Books { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStore.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,20 +26,27 @@ namespace BookStore.Controllers
 
         public ActionResult AddBook()
         {
+            //var languages = _context.Languages.ToList();
+
+            //BookView bookView = new BookView
+            //{
+            //    Languages = languages
+            //}; 
+            //return View(bookView);
             return View();
         }
 
-        public ActionResult CreateBook(Book book)
+        public ActionResult CreateBook(BookView bookView)
         {
-            if (book.Id == 0)
-            {
-                _context.Books.Add(book);
-            }
-            else
-            {
-                var bookInDb = _context.Books.SingleOrDefault(b => b.Id == book.Id);
-                TryUpdateModel(bookInDb);
-            }
+            //if (bookView.Book.Id == 0)
+            //{
+            //    _context.Books.Add(bookView);
+            //}
+            //else
+            //{
+            //    var bookInDb = _context.Books.SingleOrDefault(b => b.Id == book.Id);
+            //    TryUpdateModel(bookInDb);
+            //}
 
             _context.SaveChanges();
             return RedirectToAction("GetAllBooks");
@@ -53,9 +61,7 @@ namespace BookStore.Controllers
                 HttpNotFound();
             }
 
-
             return View("AddBook", book);
-
         }
     }
 }

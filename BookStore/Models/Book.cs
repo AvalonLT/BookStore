@@ -26,7 +26,10 @@ namespace BookStore.Models
         public bool Hardcover { get; set; }
 
         [Required]
-        public string Language { get; set; }
+        public Language Language { get; set; }
+
+        [Required]
+        public int LanguageId { get; set; }
 
         [Required]
         public Author Author { get; set; }

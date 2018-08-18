@@ -8,6 +8,6 @@ namespace BookStore.Models.ViewModels
     public class BookView
     {
         public Book Book { get; set; }
-        public Language Language { get; set; }
+        //public List<Language> Languages { get; set; }
     }
 }

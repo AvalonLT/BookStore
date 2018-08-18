@@ -218,6 +218,22 @@
     <Compile Include="Migrations\201808160112284_addPropLanguage.Designer.cs">
       <DependentUpon>201808160112284_addPropLanguage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808171531300_addLanguageClass.cs" />
+    <Compile Include="Migrations\201808171531300_addLanguageClass.Designer.cs">
+      <DependentUpon>201808171531300_addLanguageClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808171538019_addChangePropLanguageClass.cs" />
+    <Compile Include="Migrations\201808171538019_addChangePropLanguageClass.Designer.cs">
+      <DependentUpon>201808171538019_addChangePropLanguageClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808180005316_removeLanguageFromModels.cs" />
+    <Compile Include="Migrations\201808180005316_removeLanguageFromModels.Designer.cs">
+      <DependentUpon>201808180005316_removeLanguageFromModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808180015442_addLanguageToModel.cs" />
+    <Compile Include="Migrations\201808180015442_addLanguageToModel.Designer.cs">
+      <DependentUpon>201808180015442_addLanguageToModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -362,6 +378,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808160112284_addPropLanguage.resx">
       <DependentUpon>201808160112284_addPropLanguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171531300_addLanguageClass.resx">
+      <DependentUpon>201808171531300_addLanguageClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808171538019_addChangePropLanguageClass.resx">
+      <DependentUpon>201808171538019_addChangePropLanguageClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808180005316_removeLanguageFromModels.resx">
+      <DependentUpon>201808180005316_removeLanguageFromModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808180015442_addLanguageToModel.resx">
+      <DependentUpon>201808180015442_addLanguageToModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
