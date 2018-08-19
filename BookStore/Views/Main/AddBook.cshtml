@@ -52,6 +52,7 @@ else
 
     <div>
         @Html.HiddenFor(b => b.Book.Id)
+        @Html.HiddenFor(b => b.Book.AuthorId)
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 }
