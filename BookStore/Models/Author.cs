@@ -16,7 +16,6 @@ namespace BookStore.Models
         [Required]
         public string LastName { get; set; }
 
-        [Required]
         public ICollection<Book> Books { get; set; }
 
     }

@@ -39,17 +39,12 @@ namespace BookStore.Controllers
         {
             if (book.Id == 0) //create
             {
-                book.Language = _context.Languages.Single(b => b.Id == book.LanguageId);
                 _context.Books.Add(book);
             }
             else //update
             {
-                var bookInDb = _context.Books.Include(b => b.Author).Include(b => b.Language).Single(b => b.Id == book.Id);
-                book.Language = _context.Languages.SingleOrDefault(b => b.Id == book.LanguageId);
-                book.Author.Id = book.AuthorId;
-                var a = _context.Books.Single(b => b.Id == book.Id);
-                book.Author.Books.Add(a);
-
+                var bookInDb = _context.Books.Include(b => b.Author).Single(b => b.Id == book.Id);
+                bookInDb.Year = book.Year;
                 UpdateModel(bookInDb);
             }
 
@@ -68,7 +63,6 @@ namespace BookStore.Controllers
             {
                 Book = book,
                 Languages = _context.Languages.ToList()
-
             };
 
             return View("AddBook", bookView);

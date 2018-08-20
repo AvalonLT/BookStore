@@ -13,29 +13,21 @@ namespace BookStore.Models
         [Required]
         public string Title { get; set; }
 
-        [Required]
         public string ISBN { get; set; }
 
-        [Required]
         public int PageCount { get; set; }
 
-        [Required]
         public int Year { get; set; }
 
-        [Required]
         public bool Hardcover { get; set; }
 
-        [Required]
         public Language Language { get; set; }
 
-        [Required]
         [Display(Name = "Language")]
         public int LanguageId { get; set; }
 
-        [Required]
         public Author Author { get; set; }
 
-        [Required]
         public int AuthorId { get; set; }
     }
 }
