@@ -44,7 +44,17 @@ namespace BookStore.Controllers
             else //update
             {
                 var bookInDb = _context.Books.Include(b => b.Author).Single(b => b.Id == book.Id);
+
+                bookInDb.Author.Name = book.Author.Name;
+                bookInDb.Author.LastName = book.Author.LastName;
+                bookInDb.Hardcover = book.Hardcover;
+                bookInDb.ISBN = book.ISBN;
+                bookInDb.Language = book.Language;
+                bookInDb.LanguageId = book.LanguageId;
+                bookInDb.PageCount = book.PageCount;
+                bookInDb.Title = book.Title;
                 bookInDb.Year = book.Year;
+
                 UpdateModel(bookInDb);
             }
 
