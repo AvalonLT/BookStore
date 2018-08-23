@@ -198,3 +198,10 @@ html, body {
     vertical-align: middle;
 }
 
+/* Overrides */
+
+.field-validation-error {
+    color:red;
+}
+
+
