@@ -79,5 +79,11 @@ namespace BookStore.Controllers.Api
 
             _context.SaveChanges();
         }
+
+        [HttpDelete]
+        public void DeleteBook(int id)
+        {
+
+        }
     }
 }
