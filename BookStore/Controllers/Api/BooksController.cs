@@ -1,6 +1,7 @@
 ﻿using BookStore.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,7 +21,8 @@ namespace BookStore.Controllers.Api
         //GET /api/books
         public IEnumerable<Book> GetBooks()
         {
-            return _context.Books.ToList();
+            var a = _context.Books.Include(b => b.Author).Include(b => b.Language).ToList();
+            return a;
         }
 
         //GET /api/Books

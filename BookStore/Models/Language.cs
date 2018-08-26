@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using System.Runtime.Serialization;
 
 namespace BookStore.Models
 {
@@ -13,6 +11,7 @@ namespace BookStore.Models
         [Required]
         public string Name { get; set; }
 
+        [IgnoreDataMember]
         public ICollection<Book> Books { get; set; }
     }
 }
