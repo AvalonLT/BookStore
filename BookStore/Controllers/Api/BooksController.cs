@@ -1,4 +1,6 @@
-﻿using BookStore.Models;
+﻿using AutoMapper;
+using BookStore.Dtos;
+using BookStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,43 +21,45 @@ namespace BookStore.Controllers.Api
         }
 
         //GET /api/books
-        public IEnumerable<Book> GetBooks()
+        public IEnumerable<BookDto> GetBooks()
         {
-            var a = _context.Books.Include(b => b.Author).Include(b => b.Language).ToList();
-            return a;
+            return _context.Books.Include(b => b.Author).Include(b => b.Language).ToList().Select(Mapper.Map<Book, BookDto>);
         }
 
         //GET /api/Books
-        public Book GetBook(int id)
+        public IHttpActionResult GetBook(int id)
         {
             var book = _context.Books.SingleOrDefault(b => b.Id == id);
 
             if (book == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                BadRequest();
             }
 
-            return book;
+            return Ok(Mapper.Map<Book, BookDto>(book));
         }
 
         //POST /api/Books
         [HttpPost]
-        public Book CreateBook (Book book)
+        public IHttpActionResult CreateBook (BookDto bookDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
+            var book = Mapper.Map<BookDto, Book>(bookDto);
             _context.Books.Add(book);
             _context.SaveChanges();
 
-            return book;
+            bookDto.Id = book.Id;
+
+            return Created(new Uri(Request.RequestUri + "/" + book.Id), bookDto);
         }
 
         //PUT /api/Books
         [HttpPut]
-        public void UpdateBook(Book book, int id)
+        public void UpdateBook(BookDto bookDto, int id)
         {
             if (!ModelState.IsValid)
             {
@@ -69,15 +73,7 @@ namespace BookStore.Controllers.Api
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            bookInDb.Author.Name = book.Author.Name;
-            bookInDb.Author.LastName = book.Author.LastName;
-            bookInDb.Hardcover = book.Hardcover;
-            bookInDb.ISBN = book.ISBN;
-            bookInDb.Language = book.Language;
-            bookInDb.LanguageId = book.LanguageId;
-            bookInDb.PageCount = book.PageCount;
-            bookInDb.Title = book.Title;
-            bookInDb.Year = book.Year;
+            Mapper.Map(bookDto, bookInDb);
 
             _context.SaveChanges();
         }
