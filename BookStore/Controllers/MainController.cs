@@ -29,23 +29,26 @@ namespace BookStore.Controllers
             BookView bookView = new BookView
             {
                 Languages = _context.Languages.ToList()
-        };
+            };
 
             return View(bookView);
         }
 
         public ActionResult CreateBook(Book book)
         {
-            if (!ModelState.IsValid)
-            {
-                BookView bookView = new BookView
+            //if (book.Id == 0 && book.AuthorId == 0)
+            //{
+                if (!ModelState.IsValid)
                 {
-                    Book = book,
-                    Languages = _context.Languages.ToList()
-                };
+                    BookView bookView = new BookView
+                    {
+                        Book = book,
+                        Languages = _context.Languages.ToList()
+                    };
+                    return View("AddBook", bookView);
+                }
+            //}
 
-                return View("AddBook", bookView);
-            }
 
             if (book.Id == 0) //create
             {

@@ -78,10 +78,19 @@ namespace BookStore.Controllers.Api
             _context.SaveChanges();
         }
 
+        //DELETE /api/DeleteBook
         [HttpDelete]
         public void DeleteBook(int id)
         {
+            var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
 
+            if (bookInDb == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            _context.Books.Remove(bookInDb);
+            _context.SaveChanges();
         }
     }
 }
