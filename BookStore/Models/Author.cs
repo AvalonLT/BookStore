@@ -12,6 +12,7 @@ namespace BookStore.Models
         public string Name { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [IgnoreDataMember]

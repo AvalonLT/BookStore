@@ -20,7 +20,7 @@ namespace BookStore.Controllers
 
         public ActionResult GetAllBooks()
         {
-            var booksList = _context.Books.Include(b => b.Author).Include(b => b.Language).ToList();
+            var booksList = _context.Books.Include(b => b.Author).Include(b => b.Language).OrderByDescending(b => b.CreationDate).Take(10).ToList();
             return View(booksList);
         }
 
@@ -34,21 +34,18 @@ namespace BookStore.Controllers
             return View(bookView);
         }
 
+        [HttpPost]
         public ActionResult CreateBook(Book book)
         {
-            //if (book.Id == 0 && book.AuthorId == 0)
-            //{
-                if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
+            {
+                BookView bookView = new BookView
                 {
-                    BookView bookView = new BookView
-                    {
-                        Book = book,
-                        Languages = _context.Languages.ToList()
-                    };
-                    return View("AddBook", bookView);
-                }
-            //}
-
+                    Book = book,
+                    Languages = _context.Languages.ToList()
+                };
+                return View("AddBook", bookView);
+            }
 
             if (book.Id == 0) //create
             {

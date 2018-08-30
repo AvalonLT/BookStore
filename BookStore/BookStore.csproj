@@ -270,6 +270,10 @@
     <Compile Include="Migrations\201808290112471_RemovedBookAnnotationsForStateModel.Designer.cs">
       <DependentUpon>201808290112471_RemovedBookAnnotationsForStateModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808292232334_AddCreationDatePropToBook.cs" />
+    <Compile Include="Migrations\201808292232334_AddCreationDatePropToBook.Designer.cs">
+      <DependentUpon>201808292232334_AddCreationDatePropToBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -438,6 +442,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808290112471_RemovedBookAnnotationsForStateModel.resx">
       <DependentUpon>201808290112471_RemovedBookAnnotationsForStateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808292232334_AddCreationDatePropToBook.resx">
+      <DependentUpon>201808292232334_AddCreationDatePropToBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

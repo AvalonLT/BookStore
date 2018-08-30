@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutBookShop.cshtml";
 }
 
-@if (@Model == null)
+@if (@Model.Book == null)
 {
     <h2>New book</h2>
 }
@@ -54,8 +54,11 @@ else
     </div>
 
     <div>
-        @Html.HiddenFor(b => b.Book.Id)
-        @Html.HiddenFor(b => b.Book.AuthorId)
+        @if (@Model.Book != null)
+        {
+            @Html.HiddenFor(b => b.Book.Id)
+            @Html.HiddenFor(b => b.Book.AuthorId)
+        }
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 }

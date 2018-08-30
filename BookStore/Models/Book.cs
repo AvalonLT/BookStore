@@ -1,9 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Models
 {
     public class Book
     {
+        public Book()
+        {
+            CreationDate = DateTime.Now;
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -16,6 +22,8 @@ namespace BookStore.Models
         public int Year { get; set; }
 
         public bool Hardcover { get; set; }
+
+        public DateTime CreationDate { get; set; }
 
         public Language Language { get; set; }
 
