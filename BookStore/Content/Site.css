@@ -130,6 +130,13 @@ html, body {
     background-color: coral
 }
 
+/* Content grid */
+
+.content {
+    display: grid;
+    height: 100%;
+}
+
 /* Centent */
 
 .flex-box-content {
@@ -197,10 +204,15 @@ html, body {
     vertical-align: middle;
 }
 
-/* Overrides */
+.pagination-custom {
+    align-self: flex-end;
+}
 
+
+
+/* Overrides */
 .field-validation-error {
-    color:red;
+    color: red;
 }
 
 
