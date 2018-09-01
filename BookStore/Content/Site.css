@@ -87,7 +87,6 @@ html, body {
 
 /* Flexbox header*/
 
-
 .flex-box-header {
     display: flex;
     border: 1px solid #ff006e;
@@ -109,6 +108,20 @@ html, body {
 
 .flex-box-header > div:nth-child(2n) {
     background-color: coral;
+}
+
+/* Flexbox header menu */
+
+.home {
+    cursor: pointer;
+}
+
+.home:hover, .filter:hover {
+    color: aliceblue;
+}
+
+.filter {
+    cursor: pointer; 
 }
 
 /* Flexbox menu */
@@ -135,6 +148,13 @@ html, body {
 .content {
     display: grid;
     height: 100%;
+}
+
+/* Filter */
+
+.book-filter {
+    display: grid;
+    
 }
 
 /* Centent */
@@ -207,8 +227,6 @@ html, body {
 .pagination-custom {
     align-self: flex-end;
 }
-
-
 
 /* Overrides */
 .field-validation-error {

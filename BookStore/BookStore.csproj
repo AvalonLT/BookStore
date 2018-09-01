@@ -389,7 +389,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_LayoutBookShop.cshtml" />
     <Content Include="Views\BookShop\Test.cshtml" />
-    <Content Include="Views\Main\GetAllBooks.cshtml" />
+    <Content Include="Views\Main\GetOnePageOfBooks.cshtml" />
     <Content Include="Views\Main\AddBook.cshtml" />
   </ItemGroup>
   <ItemGroup>

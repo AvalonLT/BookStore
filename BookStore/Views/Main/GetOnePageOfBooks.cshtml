@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_LayoutBookShop.cshtml";
 }
 
-<div><button class="btn btn-info" onclick="(window.location.href='http://localhost:63085/Main/AddBook')">AddBook</button></div>
+<div class="book-filter">
+    <button class="btn btn-info" onclick="(window.location.href='http://localhost:63085/Main/AddBook')">AddBook</button>
+</div>
 
 @foreach (var book in @Model.BookList)
 {
@@ -22,7 +24,16 @@
     </div>
 }
 
-    <div class="pagination pagination-custom"></div>
+<button id="myBtn">Open Modal</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+</div>
+
+<div class="pagination pagination-custom"></div>
 
 @section GetAllBooksScript
 {
@@ -44,14 +55,13 @@
         });
 
         $(document).ready(function () {
-            var pagesCount = parseInt((@Model.ListSize) / 10 + 1);
+            var pagesCount = parseInt((@Model.ListSize - 1) / 10 + 1);
 
-            $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetAllBooks?pageNumber=1"><<</a>');
+            $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=1"><<</a>');
             for (i = 0; i < pagesCount; i++) {
-                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetAllBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
+                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
             }
-            $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetAllBooks?pageNumber=' + pagesCount + '">>></a>');
+            $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + pagesCount + '">>></a>');
         });
     </script>
 }
-
