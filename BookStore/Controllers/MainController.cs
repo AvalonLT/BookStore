@@ -32,6 +32,18 @@ namespace BookStore.Controllers
             return View(mainViewBookList);
         }
 
+        public ActionResult FilterBooks(string year, string pageCount, bool hardcover = false)
+        {
+            var mainViewBookList = new MainView
+            {
+                BookList = _context.Books.Include(b => b.Author).Include(b => b.Language)
+                .OrderByDescending(b => b.CreationDate).Where(b => b.Hardcover == hardcover).ToList(),
+                ListSize = _context.Books.ToList().Count
+            };
+
+            return View("GetOnePageOfBooks", mainViewBookList);
+        }
+
         public ActionResult AddBook()
         {
             BookView bookView = new BookView

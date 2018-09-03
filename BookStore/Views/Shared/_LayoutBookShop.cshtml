@@ -3,7 +3,6 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,7 +15,7 @@
         <div class="header">
             <div class="flex-box-header">
                 <div class="home" onclick="window.location.href='http://localhost:63085/Main/GetOnePageOfBooks/'">Home</div>
-                <div class="filter" onclick="test()">Filter</div>
+                <div class="filter" data-toggle="modal" data-target="#myModal">Filter</div>
                 <div>Logout</div>
                 <div>Help</div>
             </div>
@@ -33,22 +32,8 @@
         <div class="footer">Footer</div>
     </div>
 
-    <div id="myModal2" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-        </div>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("GetAllBooksScript", required: false)
 </body>
 </html>
 
-<script type="text/javascript">
-    //$(document).ready()
-    function test() {
-        $("#myModal2").modal("toggle");
-    }
-</script>
