@@ -274,6 +274,14 @@
     <Compile Include="Migrations\201808292232334_AddCreationDatePropToBook.Designer.cs">
       <DependentUpon>201808292232334_AddCreationDatePropToBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809032349295_AddSearchResultModelClass.cs" />
+    <Compile Include="Migrations\201809032349295_AddSearchResultModelClass.Designer.cs">
+      <DependentUpon>201809032349295_AddSearchResultModelClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809032357595_RenameSearchResultToSearchInput.cs" />
+    <Compile Include="Migrations\201809032357595_RenameSearchResultToSearchInput.Designer.cs">
+      <DependentUpon>201809032357595_RenameSearchResultToSearchInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -281,6 +289,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SearchInput.cs" />
     <Compile Include="Models\ViewModels\BookView.cs" />
     <Compile Include="Models\ViewModels\MainView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -446,6 +455,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808292232334_AddCreationDatePropToBook.resx">
       <DependentUpon>201808292232334_AddCreationDatePropToBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809032349295_AddSearchResultModelClass.resx">
+      <DependentUpon>201809032349295_AddSearchResultModelClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809032357595_RenameSearchResultToSearchInput.resx">
+      <DependentUpon>201809032357595_RenameSearchResultToSearchInput.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

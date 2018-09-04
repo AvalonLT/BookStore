@@ -20,6 +20,7 @@ namespace BookStore.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<SearchInput> SearchInputs { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Language> Languages { get; set; }
