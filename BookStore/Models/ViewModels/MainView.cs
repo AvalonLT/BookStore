@@ -10,7 +10,6 @@ namespace BookStore.Models.ViewModels
         public List<Book> BookList { get; set; }
         public int ListSize { get; set; }
         public List<Language> Languages { get; set; }
-        public string FilterOn { get; set; }
-        public int Test { get; set; }
+        public bool FilterOn { get; set; }
     }
 }

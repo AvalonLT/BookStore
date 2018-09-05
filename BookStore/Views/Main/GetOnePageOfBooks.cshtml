@@ -79,27 +79,10 @@
 
 <div class="pagination pagination-custom"></div>
 
-@{ 
-    string a = "true";
-}
 
 @section GetAllBooksScript
 {
     <script>
-        var filterOn;
-        var year;
-        var pageCount;
-        var hardcover;
-        var language;
-
-        function saveSearch() {
-            filterOn = true;
-            year = $('#year').val()
-            pageCount = $('#pageCount').val();
-            hardcover = $('#hardcover').val();
-            language = $('#language').val();
-        }
-
         $(document).ready(function () {
             $("#books .js-delete").on("click", function () {
                 var button = $(this);
@@ -118,26 +101,20 @@
 
         $(document).ready(function () {
             var pagesCount = parseInt((@Model.ListSize - 1) / 10 + 1);
-            alert(pageCount)
-            @*var b = @a; 
-            alert(b);*@
 
-            @a
-            if (@a) {
-                alert('true')
+            if (@Model.FilterOn.ToString().ToLower()) {
                 $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=1"><<</a>');
-                for (i = 0; i < pagesCount; i++) {
+                    for (i = 0; i < pagesCount; i++) {
                     $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
-                }
+                    }
                 $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + pagesCount + '">>></a>');
-            } else {
-                alert('false')
-                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=1"><<</a>');
-                for (i = 0; i < pagesCount; i++) {
+                } else {
+                    $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=1"><<</a>');
+                    for (i = 0; i < pagesCount; i++) {
                     $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
-                }
+                    }
                 $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + pagesCount + '">>></a>');
-            }
+                }
         });
     </script>
 }

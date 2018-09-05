@@ -1,5 +1,6 @@
 ﻿using BookStore.Models;
 using BookStore.Models.ViewModels;
+using BookStore.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,10 +13,12 @@ namespace BookStore.Controllers
     public class MainController : Controller
     {
         private ApplicationDbContext _context;
+        private MainControllerService _service;
         
         public MainController()
         {
             _context = new ApplicationDbContext();
+            _service = new MainControllerService();
         }
 
         public ActionResult GetOnePageOfBooks(int? pageNumber)
@@ -27,7 +30,8 @@ namespace BookStore.Controllers
                 BookList = _context.Books.Include(b => b.Author).Include(b => b.Language)
                 .OrderByDescending(b => b.CreationDate).Skip((pageNumberInt - 1) * 10).Take(pageNumberInt * 10).ToList(),
                 ListSize = _context.Books.ToList().Count,
-                Languages = _context.Languages.ToList()
+                Languages = _context.Languages.ToList(),
+                FilterOn = false
             };
             
             return View(mainViewBookList);
@@ -50,54 +54,28 @@ namespace BookStore.Controllers
             }
             else
             {
-                var lastSearchInput = _context.SearchInputs.Select(s => s.Id).Single();
+                var lastSearchInput = _context.SearchInputs.OrderByDescending(s => s.Id).First();
+                var bookListSearch = _service.GetBookListAndPagination(lastSearchInput.Year, lastSearchInput.PageCount, lastSearchInput.Hardcover, lastSearchInput.Language, pageNumber);
 
-                var searchInput = new SearchInput
+                var mainViewBookSearchList = new MainView
                 {
-                    Year = year,
-                    PageCount = pageCount,
-                    Hardcover = hardcover,
-                    Language = language
+                    BookList = bookListSearch,
+                    ListSize = _service.GetBookListAndPaginationCount(lastSearchInput.Year, lastSearchInput.PageCount, lastSearchInput.Hardcover, lastSearchInput.Language),
+                    Languages = _context.Languages.ToList(),
+                    FilterOn = true,
                 };
 
-                UpdateModel(searchInput);
+                return View("GetOnePageOfBooks", mainViewBookSearchList);
             }
 
-
-
-
-            bool hardcoverBool = (hardcover == "Yes") ? true : false;
-
-            int yearStart, yearEnd, pageCountStart, pageCountEnd;
-            yearStart = yearEnd = pageCountStart = pageCountEnd = 0;
-
-            if (year != "" || year != null)
-            {
-                string[] yearSplit = year.Split('-');
-                yearStart = Int32.Parse(yearSplit[0]);
-                yearEnd = Int32.Parse(yearSplit[1]);
-            }
-
-            if (pageCount != "" || pageCount != null)
-            { 
-                string[] pageCountSplit = pageCount.Split('-');
-                pageCountStart = Int32.Parse(pageCountSplit[0]);
-                pageCountEnd = Int32.Parse(pageCountSplit[1]);
-            }
-
-            var bookList = _context.Books.Include(b => b.Author).Include(b => b.Language)
-                .OrderByDescending(b => b.CreationDate)
-                .Where(b => (hardcover == "") ? true : b.Hardcover == hardcoverBool)
-                .Where(b => (language == "") ? true : b.Language.Name == language)
-                .Where(b => (year == "" || yearStart == 0 || yearEnd == 0) ? true : b.Year >= yearStart && b.Year <= yearEnd)
-                .Where(b => (pageCount == "" || pageCountStart == 0 || pageCountEnd == 0) ? true : b.PageCount >= pageCountStart && b.PageCount <= pageCountEnd).ToList();
+            var bookList = _service.GetBookListAndPagination(year, pageCount, hardcover, language, pageNumber);
 
             var mainViewBookList = new MainView
             {
                 BookList = bookList,
-                ListSize = bookList.Count,
+                ListSize = _service.GetBookListAndPaginationCount(year, pageCount, hardcover, language),
                 Languages = _context.Languages.ToList(),
-                FilterOn = "true"
+                FilterOn = true,
             };
 
             return View("GetOnePageOfBooks", mainViewBookList);
@@ -148,7 +126,7 @@ namespace BookStore.Controllers
             }
 
             _context.SaveChanges();
-            return RedirectToAction("GetAllBooks");
+            return RedirectToAction("GetOnePageOfBooks");
         }
 
         public ActionResult EditBook(int id)
