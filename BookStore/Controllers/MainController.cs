@@ -41,16 +41,7 @@ namespace BookStore.Controllers
         {
             if (pageNumber == null)
             {
-                var searchInput = new SearchInput
-                {
-                    Year = year,
-                    PageCount = pageCount,
-                    Hardcover = hardcover,
-                    Language = language
-                };
-
-                _context.SearchInputs.Add(searchInput);
-                _context.SaveChanges();
+                _service.SaveSearch(year, pageCount, hardcover, language);
             }
             else
             {

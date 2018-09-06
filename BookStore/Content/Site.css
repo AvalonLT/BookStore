@@ -37,6 +37,7 @@ html, body {
     background-color: #ffeead;
     margin: 10px;
     height: 100%;
+    width: 100%;
 }
 
 .container > div:nth-child(1n) {
@@ -146,86 +147,88 @@ html, body {
 /* Content grid */
 
 .content {
-    display: grid;
-    height: 100%;
+    display: flex;
+    /*height: 100%;*/
+    flex-direction: column;
+    
 }
 
 /* Filter */
 
 .book-filter {
     display: grid;
-    
 }
 
 /* Centent */
 
-.flex-box-content {
+.flex-box-book {
     display: flex;
-    flex-direction: row;
     margin: 2px;
-    flex-grow: 1;
+    /*flex-grow: 1;*/
+    
 }
 
-
-.flex-box-content > div {
+.flex-box-book > div {
     font-size: 20px;
-    flex-basis: 50px;
     padding-left: 5px;
+    height: 65px;
 }
 
-.flex-box-content > div:nth-child(1n) {
+.flex-box-book > div:nth-child(1n) {
     background-color: cornflowerblue
 }
 
-.flex-box-content > div:nth-child(2n) {
+.flex-box-book > div:nth-child(2n) {
     background-color: coral;
 }
 
-.flex-box-content > .book-author {
-    font-size: 20px;
-    flex-basis: 150px;
+.flex-box-book > .book-author {
+    width: 14%;
 }
 
-.flex-box-content > .book-title {
-    flex-basis: 200px;
-    background-color:aqua;
+.flex-box-book > .book-title {
+    width: 22%;
 }
 
-.flex-box-content > .book-year {
-    flex-basis: 55px;
+.flex-box-book > .book-year {
+    width: 8%;
 }
 
-.flex-box-content > .book-page-count {
-    flex-basis: 55px;
+.flex-box-book > .book-page-count {
+    width: 6%;
 }
 
-.flex-box-content > .book-isbn {
-    flex-basis: 105px;
+.flex-box-book > .book-isbn {
+    width: 12%;
 }
 
-.flex-box-content > .book-hardcover {
-    flex-basis: 50px;
+.flex-box-book > .book-hardcover {
+    width: 6%;
 }
 
-.flex-box-content > .book-language {
-    flex-basis: 50px;
+.flex-box-book > .book-language {
+    width: 12%;
 }
 
-.flex-box-content > .book-update {
-    flex-basis: 100px;
+.flex-box-book > .book-update {
+    width: 6%;
 }
 
-.flex-box-content > .book-delete {
-    flex-basis: 100px;
+.flex-box-book > .book-delete {
+    width: 8%;
 }
 
-
-.flex-box-content > .book.book-delete-new {
+.flex-box-book > .book.book-delete-new {
     vertical-align: middle;
 }
 
 .pagination-custom {
     align-self: flex-end;
+}
+
+/* Add Book */
+.add-book {
+    margin: 5px;
 }
 
 /* Overrides */

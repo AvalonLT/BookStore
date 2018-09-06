@@ -57,6 +57,20 @@ namespace BookStore.Services
             return bookListCount;
         }
 
+        public void SaveSearch(string year, string pageCount, string hardcover, string language)
+        {
+            var searchInput = new SearchInput
+            {
+                Year = year,
+                PageCount = pageCount,
+                Hardcover = hardcover,
+                Language = language
+            };
+
+            _context.SearchInputs.Add(searchInput);
+            _context.SaveChanges();
+        }
+
         private int[] GetYearSplit(string year)
         {
             int yearStart, yearEnd;

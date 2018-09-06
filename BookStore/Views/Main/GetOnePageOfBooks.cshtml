@@ -11,7 +11,7 @@
 
 @foreach (var book in @Model.BookList)
 {
-    <div id="books" class="flex-box-content">
+    <div id="books" class="flex-box-book">
         <div class="book-author">@book.Author.Name @book.Author.LastName</div>
         <div class="book-title">@book.Title</div>
         <div class="book-year">@book.Year</div>
