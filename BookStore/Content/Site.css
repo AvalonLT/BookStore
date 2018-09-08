@@ -25,14 +25,6 @@ textarea {
 
 /* Grid colors */
 
-/*.container > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    color: #ffeead;
-}*/
-
 html, body {
     background-color: #ffeead;
     margin: 10px;
@@ -157,6 +149,7 @@ html, body {
 
 .book-filter {
     display: grid;
+    margin: 2px;
 }
 
 /* Centent */
@@ -226,6 +219,11 @@ html, body {
     align-self: flex-end;
 }
 
+/* Footer */
+.footer-content {
+    margin: 2px;
+    margin-left: 10px;
+}
 /* Add Book */
 .add-book {
     margin: 5px;

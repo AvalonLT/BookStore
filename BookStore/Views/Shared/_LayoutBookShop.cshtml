@@ -16,8 +16,8 @@
             <div class="flex-box-header">
                 <div class="home" onclick="window.location.href='http://localhost:63085/Main/GetOnePageOfBooks/'">Home</div>
                 <div class="filter" data-toggle="modal" data-target="#myModal">Filter</div>
-                <div>Logout</div>
-                <div>Help</div>
+                @*<div>Logout</div>
+                <div>Help</div>*@
             </div>
         </div>
         <div class="menu">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="content">@RenderBody()</div>
-        <div class="footer">Footer</div>
+        <div class="footer"><div class="footer-content">ASP.Net MVC Demo</div></div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

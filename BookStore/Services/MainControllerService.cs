@@ -32,7 +32,7 @@ namespace BookStore.Services
                 .Where(b => (language == "") ? true : b.Language.Name == language)
                 .Where(b => (year == "" || yearStart == 0 || yearEnd == 0) ? true : b.Year >= yearStart && b.Year <= yearEnd)
                 .Where(b => (pageCount == "" || pageCountStart == 0 || pageCountEnd == 0) ? true : b.PageCount >= pageCountStart && b.PageCount <= pageCountEnd)
-                .Skip((pageNumberInt - 1) * 10).Take(pageNumberInt * 10).ToList();
+                .Skip((pageNumberInt - 1) * 10).Take(10).ToList();
 
             return bookList;
         }

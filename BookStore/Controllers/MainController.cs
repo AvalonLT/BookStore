@@ -24,11 +24,11 @@ namespace BookStore.Controllers
         public ActionResult GetOnePageOfBooks(int? pageNumber)
         {
             int pageNumberInt = (pageNumber == null) ? 1 : (int)pageNumber;
-
+            
             var mainViewBookList = new MainView
             {
                 BookList = _context.Books.Include(b => b.Author).Include(b => b.Language)
-                .OrderByDescending(b => b.CreationDate).Skip((pageNumberInt - 1) * 10).Take(pageNumberInt * 10).ToList(),
+                .OrderByDescending(b => b.CreationDate).Skip((pageNumberInt - 1) * 10).Take(10).ToList(),
                 ListSize = _context.Books.ToList().Count,
                 Languages = _context.Languages.ToList(),
                 FilterOn = false
