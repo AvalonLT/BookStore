@@ -7,13 +7,13 @@ namespace BookStore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class deleteLanguageProp : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(deleteLanguageProp));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808160111079_deleteLanguageProp"; }
+            get { return "201809082324145_Initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -54,45 +54,87 @@
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -210,7 +252,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\BasketController.cs" />
     <Compile Include="Controllers\Api\BooksController.cs" />
+    <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -218,69 +262,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808070111597_InitialModel.cs" />
-    <Compile Include="Migrations\201808070111597_InitialModel.Designer.cs">
-      <DependentUpon>201808070111597_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201809082324145_Initial.cs" />
+    <Compile Include="Migrations\201809082324145_Initial.Designer.cs">
+      <DependentUpon>201809082324145_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808070116120_ChangedBookPropertyNameToTitle.cs" />
-    <Compile Include="Migrations\201808070116120_ChangedBookPropertyNameToTitle.Designer.cs">
-      <DependentUpon>201808070116120_ChangedBookPropertyNameToTitle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808092316493_AddPropertyYearToBook.cs" />
-    <Compile Include="Migrations\201808092316493_AddPropertyYearToBook.Designer.cs">
-      <DependentUpon>201808092316493_AddPropertyYearToBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808160111079_deleteLanguageProp.cs" />
-    <Compile Include="Migrations\201808160111079_deleteLanguageProp.Designer.cs">
-      <DependentUpon>201808160111079_deleteLanguageProp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808160112284_addPropLanguage.cs" />
-    <Compile Include="Migrations\201808160112284_addPropLanguage.Designer.cs">
-      <DependentUpon>201808160112284_addPropLanguage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808171531300_addLanguageClass.cs" />
-    <Compile Include="Migrations\201808171531300_addLanguageClass.Designer.cs">
-      <DependentUpon>201808171531300_addLanguageClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808171538019_addChangePropLanguageClass.cs" />
-    <Compile Include="Migrations\201808171538019_addChangePropLanguageClass.Designer.cs">
-      <DependentUpon>201808171538019_addChangePropLanguageClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808180005316_removeLanguageFromModels.cs" />
-    <Compile Include="Migrations\201808180005316_removeLanguageFromModels.Designer.cs">
-      <DependentUpon>201808180005316_removeLanguageFromModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808180015442_addLanguageToModel.cs" />
-    <Compile Include="Migrations\201808180015442_addLanguageToModel.Designer.cs">
-      <DependentUpon>201808180015442_addLanguageToModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808181526060_PopulateLanguages.cs" />
-    <Compile Include="Migrations\201808181526060_PopulateLanguages.Designer.cs">
-      <DependentUpon>201808181526060_PopulateLanguages.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808200043195_RemoveRequiredTagsFromAllBookPropExceptTitle.cs" />
-    <Compile Include="Migrations\201808200043195_RemoveRequiredTagsFromAllBookPropExceptTitle.Designer.cs">
-      <DependentUpon>201808200043195_RemoveRequiredTagsFromAllBookPropExceptTitle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808200059305_RemoveRequiredTagsFromAllLanguagePropExceptName.cs" />
-    <Compile Include="Migrations\201808200059305_RemoveRequiredTagsFromAllLanguagePropExceptName.Designer.cs">
-      <DependentUpon>201808200059305_RemoveRequiredTagsFromAllLanguagePropExceptName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808290112471_RemovedBookAnnotationsForStateModel.cs" />
-    <Compile Include="Migrations\201808290112471_RemovedBookAnnotationsForStateModel.Designer.cs">
-      <DependentUpon>201808290112471_RemovedBookAnnotationsForStateModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808292232334_AddCreationDatePropToBook.cs" />
-    <Compile Include="Migrations\201808292232334_AddCreationDatePropToBook.Designer.cs">
-      <DependentUpon>201808292232334_AddCreationDatePropToBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809032349295_AddSearchResultModelClass.cs" />
-    <Compile Include="Migrations\201809032349295_AddSearchResultModelClass.Designer.cs">
-      <DependentUpon>201809032349295_AddSearchResultModelClass.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809032357595_RenameSearchResultToSearchInput.cs" />
-    <Compile Include="Migrations\201809032357595_RenameSearchResultToSearchInput.Designer.cs">
-      <DependentUpon>201809032357595_RenameSearchResultToSearchInput.cs</DependentUpon>
+    <Compile Include="Migrations\201809101331161_AddedPropToBook.cs" />
+    <Compile Include="Migrations\201809101331161_AddedPropToBook.Designer.cs">
+      <DependentUpon>201809101331161_AddedPropToBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -332,6 +320,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\AspNetWebsiteDemo - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\AspNetWebsiteDemo1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -363,6 +352,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -404,6 +394,7 @@
     <Content Include="Views\BookShop\Test.cshtml" />
     <Content Include="Views\Main\GetOnePageOfBooks.cshtml" />
     <Content Include="Views\Main\AddBook.cshtml" />
+    <Content Include="Views\Basket\GetBasketContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -418,53 +409,11 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808070111597_InitialModel.resx">
-      <DependentUpon>201808070111597_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809082324145_Initial.resx">
+      <DependentUpon>201809082324145_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808070116120_ChangedBookPropertyNameToTitle.resx">
-      <DependentUpon>201808070116120_ChangedBookPropertyNameToTitle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808092316493_AddPropertyYearToBook.resx">
-      <DependentUpon>201808092316493_AddPropertyYearToBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808160111079_deleteLanguageProp.resx">
-      <DependentUpon>201808160111079_deleteLanguageProp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808160112284_addPropLanguage.resx">
-      <DependentUpon>201808160112284_addPropLanguage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808171531300_addLanguageClass.resx">
-      <DependentUpon>201808171531300_addLanguageClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808171538019_addChangePropLanguageClass.resx">
-      <DependentUpon>201808171538019_addChangePropLanguageClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808180005316_removeLanguageFromModels.resx">
-      <DependentUpon>201808180005316_removeLanguageFromModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808180015442_addLanguageToModel.resx">
-      <DependentUpon>201808180015442_addLanguageToModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808181526060_PopulateLanguages.resx">
-      <DependentUpon>201808181526060_PopulateLanguages.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808200043195_RemoveRequiredTagsFromAllBookPropExceptTitle.resx">
-      <DependentUpon>201808200043195_RemoveRequiredTagsFromAllBookPropExceptTitle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808200059305_RemoveRequiredTagsFromAllLanguagePropExceptName.resx">
-      <DependentUpon>201808200059305_RemoveRequiredTagsFromAllLanguagePropExceptName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808290112471_RemovedBookAnnotationsForStateModel.resx">
-      <DependentUpon>201808290112471_RemovedBookAnnotationsForStateModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808292232334_AddCreationDatePropToBook.resx">
-      <DependentUpon>201808292232334_AddCreationDatePropToBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809032349295_AddSearchResultModelClass.resx">
-      <DependentUpon>201809032349295_AddSearchResultModelClass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809032357595_RenameSearchResultToSearchInput.resx">
-      <DependentUpon>201809032357595_RenameSearchResultToSearchInput.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201809101331161_AddedPropToBook.resx">
+      <DependentUpon>201809101331161_AddedPropToBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

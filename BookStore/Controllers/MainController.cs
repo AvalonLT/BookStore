@@ -19,12 +19,13 @@ namespace BookStore.Controllers
         {
             _context = new ApplicationDbContext();
             _service = new MainControllerService();
+            ViewBag.BasketCount = _context.Books.Where(b => b.AddedToBasket == true).ToList().Count;
         }
 
         public ActionResult GetOnePageOfBooks(int? pageNumber)
         {
             int pageNumberInt = (pageNumber == null) ? 1 : (int)pageNumber;
-            
+
             var mainViewBookList = new MainView
             {
                 BookList = _context.Books.Include(b => b.Author).Include(b => b.Language)

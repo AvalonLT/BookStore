@@ -3,16 +3,16 @@ namespace BookStore.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class RemoveRequiredTagsFromAllBookPropExceptTitle : DbMigration
+    public partial class AddedPropToBook : DbMigration
     {
         public override void Up()
         {
-            AlterColumn("dbo.Books", "ISBN", c => c.String());
+            AddColumn("dbo.Books", "AddedToBasket", c => c.Boolean(nullable: false));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Books", "ISBN", c => c.String(nullable: false));
+            DropColumn("dbo.Books", "AddedToBasket");
         }
     }
 }

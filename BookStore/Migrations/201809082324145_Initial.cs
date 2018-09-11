@@ -3,7 +3,7 @@ namespace BookStore.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -22,14 +22,29 @@ namespace BookStore.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        ISBN = c.String(nullable: false),
+                        Title = c.String(nullable: false),
+                        ISBN = c.String(),
                         PageCount = c.Int(nullable: false),
+                        Year = c.Int(nullable: false),
+                        Hardcover = c.Boolean(nullable: false),
+                        CreationDate = c.DateTime(nullable: false),
+                        LanguageId = c.Int(nullable: false),
                         AuthorId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: true)
+                .ForeignKey("dbo.Languages", t => t.LanguageId, cascadeDelete: true)
+                .Index(t => t.LanguageId)
                 .Index(t => t.AuthorId);
+            
+            CreateTable(
+                "dbo.Languages",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -53,6 +68,18 @@ namespace BookStore.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.SearchInputs",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Year = c.String(),
+                        PageCount = c.String(),
+                        Hardcover = c.String(),
+                        Language = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -107,6 +134,7 @@ namespace BookStore.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Books", "LanguageId", "dbo.Languages");
             DropForeignKey("dbo.Books", "AuthorId", "dbo.Authors");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -115,11 +143,14 @@ namespace BookStore.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Books", new[] { "AuthorId" });
+            DropIndex("dbo.Books", new[] { "LanguageId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.SearchInputs");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Languages");
             DropTable("dbo.Books");
             DropTable("dbo.Authors");
         }

@@ -33,5 +33,8 @@ namespace BookStore.Models
         public Author Author { get; set; }
 
         public int AuthorId { get; set; }
+
+
+        public bool AddedToBasket { get; set; }
     }
 }

@@ -11,5 +11,6 @@ namespace BookStore.Models.ViewModels
         public int ListSize { get; set; }
         public List<Language> Languages { get; set; }
         public bool FilterOn { get; set; }
+        public int BasketSize { get; set; }
     }
 }

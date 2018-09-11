@@ -229,6 +229,11 @@ html, body {
     margin: 5px;
 }
 
+.book:hover {
+    border: groove;
+}
+
+
 /* Overrides */
 .field-validation-error {
     color: red;

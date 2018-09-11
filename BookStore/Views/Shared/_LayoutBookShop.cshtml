@@ -14,7 +14,7 @@
     <div class="container">
         <div class="header">
             <div class="flex-box-header">
-                <div class="home" onclick="window.location.href='http://localhost:63085/Main/GetOnePageOfBooks/'">Home</div>
+                <div class="home" onclick="window.location.href='@Url.Action("GetOnePageOfBooks", "Main")'">Home</div>
                 <div class="filter" data-toggle="modal" data-target="#myModal">Filter</div>
                 @*<div>Logout</div>
                 <div>Help</div>*@
@@ -22,14 +22,11 @@
         </div>
         <div class="menu">
             <div class="flex-box-menu">
-                <div>Option1</div>
-                <div>Option2</div>
-                <div>Option3</div>
-                <div>Option4</div>
+                <div onclick="window.location.href='@Url.Action("GetBasketContent", "Basket")'">Basket(@ViewBag.BasketCount)</div>
             </div>
         </div>
         <div class="content">@RenderBody()</div>
-        <div class="footer"><div class="footer-content">ASP.Net MVC Demo</div></div>
+        <div class="footer"><div class="footer-content">ASP.NET MVC</div></div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -29,3 +29,4 @@ namespace BookStore.Migrations
         }
     }
 }
+

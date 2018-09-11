@@ -7,13 +7,13 @@ namespace BookStore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addLanguageClass : IMigrationMetadata
+    public sealed partial class AddedPropToBook : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addLanguageClass));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedPropToBook));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808171531300_addLanguageClass"; }
+            get { return "201809101331161_AddedPropToBook"; }
         }
         
         string IMigrationMetadata.Source

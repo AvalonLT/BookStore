@@ -26,7 +26,7 @@ namespace BookStore.Models
         public DbSet<Language> Languages { get; set; }
 
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("BookStoreDb", throwIfV1Schema: false)
         {
         }
 

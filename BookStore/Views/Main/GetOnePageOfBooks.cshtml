@@ -6,12 +6,12 @@
 }
 
 <div class="book-filter">
-    <button class="btn btn-info" onclick="(window.location.href='http://localhost:63085/Main/AddBook')">AddBook</button>
+    <button class="btn btn-info" onclick="window.location.href='@Url.Action("AddBook", "Main")'">AddBook</button>
 </div>
 
 @foreach (var book in @Model.BookList)
 {
-    <div id="books" class="flex-box-book">
+    <div id="books" class="flex-box-book book js-book">
         <div class="book-author">@book.Author.Name @book.Author.LastName</div>
         <div class="book-title">@book.Title</div>
         <div class="book-year">@book.Year</div>
@@ -19,7 +19,7 @@
         <div class="book-isbn">@book.ISBN</div>
         <div class="book-hardcover">@book.Hardcover</div>
         <div class="book-language">@book.Language.Name</div>
-        <div class="book-update"><button class="btn btn-warning btn-sm" onclick="window.location.href='http://localhost:63085/Main/EditBook?id=@book.Id'">Edit</button></div>
+        <div class="book-update"><button class="btn btn-warning btn-sm" onclick="window.location.href='@Url.Action("EditBook", "Main", new { id = book.Id })'">Edit</button></div>
         <div class="book-delete"><button data-book-id="@book.Id" class="btn btn-danger btn-sm js-delete">Delete</button></div>
     </div>
 }
@@ -27,7 +27,7 @@
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">year
+            <div class="modal-header">
                 <h4 class="modal-title">Filter books</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
@@ -53,7 +53,7 @@
                                 <option>No</option>
                             </select>
                         </div>
-                     </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-form-label" for="language">Language</label>
                         <div class="form-group">
@@ -66,11 +66,26 @@
                             </select>
                         </div>
                     </div>
-                <button type="submit" class="btn btn-primary" onclick="saveSearch()">Submit</button>
+                    <button type="submit" class="btn btn-primary" onclick="saveSearch()">Submit</button>
                 }
 
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="addToBasketModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Add To Basket?</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <button type="submit" class="btn btn-primary" onclick="addToBasket()">Add</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -83,6 +98,8 @@
 @section GetAllBooksScript
 {
     <script>
+        var bookId;
+
         $(document).ready(function () {
             $("#books .js-delete").on("click", function () {
                 var button = $(this);
@@ -102,19 +119,42 @@
         $(document).ready(function () {
             var pagesCount = parseInt((@Model.ListSize - 1) / 10 + 1);
 
-            if (@Model.FilterOn.ToString().ToLower()) {
-                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=1"><<</a>');
+            if (@Model.FilterOn.ToString().ToLower()) { 
+                $(".pagination").append('<a class="page-link" href="@Url.Action("FilterBooks", "Main", new { pageNumber = 1 })"><<</a>');
                     for (i = 0; i < pagesCount; i++) {
                     $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
                     }
                 $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + pagesCount + '">>></a>');
                 } else {
-                    $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=1"><<</a>');
+                    $(".pagination").append('<a class="page-link" href="@Url.Action("GetOnePageOfBooks", "Main", new { pageNumber = 1 })"><<</a>');
                     for (i = 0; i < pagesCount; i++) {
-                    $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
+                        $(".pagination").append('<a class="page-link" href="@Url.Action("GetOnePageOfBooks", "Main")&pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
                     }
-                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + pagesCount + '">>></a>');
-                }
+                $(".pagination").append('<a class="page-link" href="http://aspnetwebsitedemo.azurewebsites.net/Main/GetOnePageOfBooks?pageNumber=' + pagesCount + '">>></a>');
+                        }
+                    });
+
+        $(document).ready(function () {
+            $(".book-author, .book-title, .book-year, .book-page-count, .book-isbn, .book-hardcover, .book-language").on("click", function() {
+                $('#addToBasketModal').modal('toggle');
+            });
         });
+
+        $(document).ready(function () {
+            $(".js-book").on("click", function () {
+                bookId = $(this).children(".book-delete").children(".js-delete").attr("data-book-id");
+                //alert(bookId);
+            });
+        });
+
+        function addToBasket() {
+            $.ajax({
+                url: "/api/Basket/" + bookId,
+                method: "PUT",
+                success: function () {
+                    $('#addToBasketModal').modal('toggle');
+                }
+            })
+        }
     </script>
 }
