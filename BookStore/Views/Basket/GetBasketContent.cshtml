@@ -1,8 +1,40 @@
-﻿
+﻿@model BookStore.Models.ViewModels.BasketView
+
 @{
     ViewBag.Title = "GetBasketContent";
     Layout = "~/Views/Shared/_LayoutBookShop.cshtml";
 }
 
-<h2>GetBasketContent</h2>
+@foreach (var book in @Model.BookList)
+{
+    <div id="books" class="flex-box-book js-book">
+        <div class="book-author">@book.Author.Name @book.Author.LastName</div>
+        <div class="book-title">@book.Title</div>
+        <div class="book-delete"><button data-book-id="@book.Id" class="btn btn-danger btn-sm js-remove">Remove</button></div>
+    </div>
+}
 
+@section GetBasketContentScript {
+    <script>
+        $(document).ready(function () {
+            $("#books .js-remove").on("click", function () {
+                var button = $(this);
+
+                if (confirm("Remove?")) {
+                    $.ajax({
+                        url: "/api/basket/" + button.attr("data-book-id"),
+                        method: "POST",
+                        success: function () {
+                            button.parent("div").parent("div").remove();
+                        }
+                    })
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#menu-basket").text('Basket');
+        })
+    </script>
+
+}

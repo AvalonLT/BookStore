@@ -26,7 +26,6 @@ textarea {
 /* Grid colors */
 
 html, body {
-    background-color: #ffeead;
     margin: 10px;
     height: 100%;
     width: 100%;
@@ -96,11 +95,11 @@ html, body {
 }
 
 .flex-box-header > div:nth-child(1n) {
-    background-color: gold;
+    background-color: #50daff;
 }
 
 .flex-box-header > div:nth-child(2n) {
-    background-color: coral;
+    background-color: #78b1d7;
 }
 
 /* Flexbox header menu */
@@ -109,7 +108,7 @@ html, body {
     cursor: pointer;
 }
 
-.home:hover, .filter:hover {
+.home:hover, .filter:hover, #menu-basket:hover {
     color: aliceblue;
 }
 
@@ -135,6 +134,10 @@ html, body {
 .flex-box-menu > div:nth-child(1n) {
     background-color: coral
 }
+
+#menu-basket:hover {
+    cursor: pointer;
+} 
 
 /* Content grid */
 
@@ -168,15 +171,15 @@ html, body {
 }
 
 .flex-box-book > div:nth-child(1n) {
-    background-color: cornflowerblue
+    background-color: #47bbdb
 }
 
 .flex-box-book > div:nth-child(2n) {
-    background-color: coral;
+    background-color: #50daff;
 }
 
 .flex-box-book > .book-author {
-    width: 14%;
+    width: 19%;
 }
 
 .flex-box-book > .book-title {
@@ -208,7 +211,7 @@ html, body {
 }
 
 .flex-box-book > .book-delete {
-    width: 8%;
+    width: 9%;
 }
 
 .flex-box-book > .book.book-delete-new {
@@ -217,6 +220,8 @@ html, body {
 
 .pagination-custom {
     align-self: flex-end;
+    position: absolute;
+    bottom: 0;
 }
 
 /* Footer */

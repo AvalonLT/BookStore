@@ -116,23 +116,43 @@
             });
         });
 
-        $(document).ready(function () {
+        
+
+        @*$(document).ready(function () {
             var pagesCount = parseInt((@Model.ListSize - 1) / 10 + 1);
 
             if (@Model.FilterOn.ToString().ToLower()) { 
                 $(".pagination").append('<a class="page-link" href="@Url.Action("FilterBooks", "Main", new { pageNumber = 1 })"><<</a>');
                     for (i = 0; i < pagesCount; i++) {
-                    $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
+                        $(".pagination").append('<a class="page-link" href="http://aspnetwebsitedemo.azurewebsites.net/Main/FilterBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
                     }
-                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + pagesCount + '">>></a>');
+                $(".pagination").append('<a class="page-link" href="http://aspnetwebsitedemo.azurewebsites.net/Main/FilterBooks?pageNumber=' + pagesCount + '">>></a>');
                 } else {
                     $(".pagination").append('<a class="page-link" href="@Url.Action("GetOnePageOfBooks", "Main", new { pageNumber = 1 })"><<</a>');
                     for (i = 0; i < pagesCount; i++) {
-                        $(".pagination").append('<a class="page-link" href="@Url.Action("GetOnePageOfBooks", "Main")&pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
+                        $(".pagination").append('<a class="page-link" href="http://aspnetwebsitedemo.azurewebsites.net/Main/GetOnePageOfBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
                     }
                 $(".pagination").append('<a class="page-link" href="http://aspnetwebsitedemo.azurewebsites.net/Main/GetOnePageOfBooks?pageNumber=' + pagesCount + '">>></a>');
-                        }
-                    });
+                }
+        });*@
+
+         $(document).ready(function () {
+            var pagesCount = parseInt((@Model.ListSize - 1) / 10 + 1);
+
+        if (@Model.FilterOn.ToString().ToLower()) {
+            $(".pagination").append('<a class="page-link" href="@Url.Action("FilterBooks", "Main", new { pageNumber = 1 })"><<</a>');
+            for (i = 0; i < pagesCount; i++) {
+                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
+            }
+            $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/FilterBooks?pageNumber=' + pagesCount + '">>></a>');
+        } else {
+            $(".pagination").append('<a class="page-link" href="@Url.Action("GetOnePageOfBooks", "Main", new { pageNumber = 1 })"><<</a>');
+            for (i = 0; i < pagesCount; i++) {
+                $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + (i + 1) + '">' + (i + 1) + '</a>');
+            }
+            $(".pagination").append('<a class="page-link" href="http://localhost:63085/Main/GetOnePageOfBooks?pageNumber=' + pagesCount + '">>></a>');
+        }
+        });
 
         $(document).ready(function () {
             $(".book-author, .book-title, .book-year, .book-page-count, .book-isbn, .book-hardcover, .book-language").on("click", function() {
@@ -143,7 +163,6 @@
         $(document).ready(function () {
             $(".js-book").on("click", function () {
                 bookId = $(this).children(".book-delete").children(".js-delete").attr("data-book-id");
-                //alert(bookId);
             });
         });
 
@@ -153,8 +172,9 @@
                 method: "PUT",
                 success: function () {
                     $('#addToBasketModal').modal('toggle');
+                    location.reload();
                 }
-            })
+            });
         }
     </script>
 }

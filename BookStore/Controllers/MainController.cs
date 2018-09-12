@@ -19,7 +19,6 @@ namespace BookStore.Controllers
         {
             _context = new ApplicationDbContext();
             _service = new MainControllerService();
-            ViewBag.BasketCount = _context.Books.Where(b => b.AddedToBasket == true).ToList().Count;
         }
 
         public ActionResult GetOnePageOfBooks(int? pageNumber)
@@ -34,7 +33,8 @@ namespace BookStore.Controllers
                 Languages = _context.Languages.ToList(),
                 FilterOn = false
             };
-            
+
+            ViewBag.BasketCount = _context.Books.Where(b => b.AddedToBasket == true).Count();
             return View(mainViewBookList);
         }
 

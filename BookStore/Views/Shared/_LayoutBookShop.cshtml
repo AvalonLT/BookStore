@@ -16,13 +16,18 @@
             <div class="flex-box-header">
                 <div class="home" onclick="window.location.href='@Url.Action("GetOnePageOfBooks", "Main")'">Home</div>
                 <div class="filter" data-toggle="modal" data-target="#myModal">Filter</div>
-                @*<div>Logout</div>
-                <div>Help</div>*@
             </div>
         </div>
         <div class="menu">
             <div class="flex-box-menu">
-                <div onclick="window.location.href='@Url.Action("GetBasketContent", "Basket")'">Basket(@ViewBag.BasketCount)</div>
+                @if (ViewBag.BasketCount == 0)
+                {
+                    <div id="menu-basket" onclick="window.location.href='@Url.Action("GetBasketContent", "Basket")'">Basket</div>
+                }
+                else
+                {
+                    <div id="menu-basket" onclick="window.location.href='@Url.Action("GetBasketContent", "Basket")'">Basket(@ViewBag.BasketCount)</div>
+                }
             </div>
         </div>
         <div class="content">@RenderBody()</div>
@@ -32,6 +37,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("GetAllBooksScript", required: false)
+    @RenderSection("GetBasketContentScript", required: false)
+    @RenderSection("AddBook", required: false);
 </body>
 </html>
 
