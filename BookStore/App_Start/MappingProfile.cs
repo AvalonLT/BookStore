@@ -14,6 +14,7 @@ namespace BookStore.App_Start
         {
             CreateMap<Book, BookDto>();
             CreateMap<BookDto, Book>();
+            CreateMap<Book, Book>();
         }
     }
 }
